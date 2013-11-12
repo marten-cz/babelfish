@@ -1,0 +1,23 @@
+{
+	"name": "marten/nette-babelfish",
+	"type": "library",
+	"description": "Nette translator",
+	"keywords": ["images", "gettext", "translator"],
+	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
+	"authors": [
+		{
+			"name": "Martin Malek",
+			"homepage": "http://www.marten-online.com"
+		}
+	],
+	"require": {
+		"php": ">=5.0.0",
+		"nette/nette": ">=2.0.0"
+	},
+	"version": "0.1",
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.1-dev"
+		}
+	}
+}
