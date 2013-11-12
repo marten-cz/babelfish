@@ -20,7 +20,7 @@ use Nette,
 class Babelfish extends Nette\Object implements IEditable
 {
 
-	const SESSION_NAMESPACE = 'NetteTranslator-Gettext';
+	const SESSION_NAMESPACE = 'Babelfish-Gettext';
 
 	const CACHE_DISABLE = 0;
 	const CACHE_FILE = 1;
@@ -167,7 +167,7 @@ class Babelfish extends Nette\Object implements IEditable
 	/**
 	 * Construct
 	 *
-	 * Create the Gettext translator object. Path to the translation files,
+	 * Create the Babelfish translator object. Path to the translation files,
 	 * default language and other default values are taken from the context
 	 * (first parameter). With second optional parameter you can specify the
 	 * list of files to be loaded to the translator. If the array is empty
@@ -892,7 +892,7 @@ class Babelfish extends Nette\Object implements IEditable
 	 */
 	private function buildPOFile($file, $identifier)
 	{
-		$po = "# Gettext keys exported by GettextTranslator and Translation Panel\n"
+		$po = "# Gettext keys exported by Babelfist and Translation Panel\n"
 			."# Created: ".date('Y-m-d H:i:s')."\n".'msgid ""'."\n".'msgstr ""'."\n";
 		$po .= '"'.implode('\n"'."\n".'"', $this->generateMetadata($identifier)).'\n"'."\n\n\n";
 		foreach ($this->dictionary as $message => $data)
@@ -1045,7 +1045,7 @@ class Babelfish extends Nette\Object implements IEditable
 	 * @param Nette\DI\IContainer $container
 	 * @param array|Nette\ArrayHash $options
 	 *
-	 * @return NetteTranslator\Gettext Babelfish instance
+	 * @return Marten\Babelfish\Babelfish Babelfish instance
 	 */
 	public static function getTranslator(Nette\DI\IContainer $container, $options = NULL)
 	{

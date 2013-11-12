@@ -43,11 +43,11 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 
 	const XHR_HEADER = 'X-Translation-Client';
 
-	const SESSION_NAMESPACE = 'NetteTranslator-Panel';
+	const SESSION_NAMESPACE = 'Babelfish-Panel';
 
-	const LANGUAGE_KEY = 'X-NetteTranslator-Lang';
+	const LANGUAGE_KEY = 'X-Babelfish-Lang';
 
-	const FILE_KEY = 'X-NetteTranslator-File';
+	const FILE_KEY = 'X-Babelfish-File';
 
 	/* Layout constants */
 	const LAYOUT_HORIZONTAL = 1;
@@ -236,7 +236,7 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	 * Register this panel
 	 *
 	 * @param \Nette\DI\IContainer $container Container instance
-	 * @param /NetteTranslator\IEditable $translator Translator instance
+	 * @param \Marten\Babelfish\IEditable $translator Translator instance
 	 * @param int $layout Layout type
 	 * @param int $height Popup height
 	 *

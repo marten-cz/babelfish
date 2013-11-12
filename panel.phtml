@@ -458,8 +458,8 @@ var translationPanel = {
 
 	commit: function () {
 		var data = {
-			'X-NetteTranslator-Lang': '<?php echo $translator->lang ?>',
-			'X-NetteTranslator-File': this.currentFile
+			'X-Babelfish-Lang': '<?php echo $translator->lang ?>',
+			'X-Babelfish-File': this.currentFile
 		};
 		for (var i in this.updatedStrings) {
 			data[this.updatedStrings[i]] = this.strings[this.currentFile][this.updatedStrings[i]];

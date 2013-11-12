@@ -1,30 +1,4 @@
 <?php
-/*
- * Copyright (c) 2010 Jan Smitka <jan@smitka.org>
- *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
-
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
- *
- */
-
 
 namespace Marten\Babelfish;
 
@@ -32,10 +6,6 @@ use Nette;
 
 /**
  * Panel for Nette DebugBar, which enables debugging of the translator.
- *
- * @author Jan Smitka <jan@smitka.org>
- * @author Patrik Votocek <patrik@votocek.cz>
- * @author Vaclav Vrbka <gmvasek@php-info.cz>
  */
 class DebugPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 {
@@ -118,7 +88,7 @@ class DebugPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	public function getTab()
 	{
 		ob_start();
-		echo '<span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAABIAAAASABGyWs+AAAACXZwQWcAAAAQAAAAEABcxq3DAAADO0lEQVQ4y32TW0xbBQCGv3OhPVB6oYArpVAYShxrp9vAMTMQFJW4TU1m8MXEqDG6y5OJidNEI4m+uARFjQ9TY4y67BJn4gPLEiVGpxtMMxjSMV0LrFuRdm2hl9PTnp7jg9nDItn//v1P3ydwm5mjgIQMiMJ+il9vtjt8fqljMbViTqbMSX8VhrAmeBRoQjAmCagp+mPptqjc/GDQtq7pofTF8eXpM+NvPNAozX05X+aWA/MfyBwFi4tadVV60TCa9wk1fQ6l9RGsdT5n5sqFy6GTnwx5fP6pkWNjjM6CfBM2TgEhLGUHfWmt9RWlqW/A7uuXKhxeMAWKSxEiPxz5rvvwn1PDLQKjC/9xEkDmW7g240Uv5p9G6frMeffzQVvjZlGSDSivQGaV3N8zlGzFhuiPw6Ghg0+EHdN/cDoK8j4P2Kp8rKjJrTbl/rfdbQNuyeGGSicU5qF0A1QwtTgNO4Lrs7HcS4Odn447POgf7qBCen03NqGielBqffj9BWWgo0bJUaktgF4AdyOUQ2CmMeJJTGuWzOL8RPfGZm33Y1v3Vmhxn3jnJmG//177V7XtnntWTRlTTIF2HVIXoBSDyiS4oliq06TnzupG0dUVePy54y5/R79g6j/JJd08UTTCvfXOEzt3bfMipg2IAtihNA3uWVBWEUkjJpyyr6dnoyivkF48d6T/i9HLcsN9hK8vlPb6vMkPqmvVJ0lnBPIiCB4oz4IzAQUDSmD3t1NRq1E0ljRVjk9FvhlF/OhRcG+Srsbm1ZezV6yfG9n+MooXjCg4lkEyIC5SNlyFTGnpF702pQktXpSWDYbsDyD9DBw6bHKgc0suPlP+1bF+sNtS39WCVYNWEVQTIi0UstaZ8PnwM9Z69Zqs1LXrGctfvt6dk9JNke64FGNoZE8+del3papO2SXY6jB1P4K6HT0vaivR0DvtB7tPn9xz/myN1/59YTkR/bjzvcQtKkePByiqerBxS9uYxWVrzEbCIXKrF0v55PTib4kRq538hjdvU9/Eu+s4pCDemBx8thg7MJ+Ze+rcmbc8da+CMNazNvO/GieGt5MMJcTgC70Bw4jetTQ9c8rQxdy2166uefAv3X9eToYjEMIAAAAuelRYdGNyZWF0ZS1kYXRlAAB42jMyMLDQNbDUNTINMTK0MjG2MjHXNrCwMjAAAEJlBR8THDGsAAAALnpUWHRtb2RpZnktZGF0ZQAAeNozMjAw0zU00DW0DDGwsDIysTK10DawsDIwAABCEwUe4e0o4wAAAABJRU5ErkJggg%3D%3D" id="TranslationPanel-debugicon">Gettext debug</span>';
+		echo '<span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAABIAAAASABGyWs+AAAACXZwQWcAAAAQAAAAEABcxq3DAAADO0lEQVQ4y32TW0xbBQCGv3OhPVB6oYArpVAYShxrp9vAMTMQFJW4TU1m8MXEqDG6y5OJidNEI4m+uARFjQ9TY4y67BJn4gPLEiVGpxtMMxjSMV0LrFuRdm2hl9PTnp7jg9nDItn//v1P3ydwm5mjgIQMiMJ+il9vtjt8fqljMbViTqbMSX8VhrAmeBRoQjAmCagp+mPptqjc/GDQtq7pofTF8eXpM+NvPNAozX05X+aWA/MfyBwFi4tadVV60TCa9wk1fQ6l9RGsdT5n5sqFy6GTnwx5fP6pkWNjjM6CfBM2TgEhLGUHfWmt9RWlqW/A7uuXKhxeMAWKSxEiPxz5rvvwn1PDLQKjC/9xEkDmW7g240Uv5p9G6frMeffzQVvjZlGSDSivQGaV3N8zlGzFhuiPw6Ghg0+EHdN/cDoK8j4P2Kp8rKjJrTbl/rfdbQNuyeGGSicU5qF0A1QwtTgNO4Lrs7HcS4Odn447POgf7qBCen03NqGielBqffj9BWWgo0bJUaktgF4AdyOUQ2CmMeJJTGuWzOL8RPfGZm33Y1v3Vmhxn3jnJmG//177V7XtnntWTRlTTIF2HVIXoBSDyiS4oliq06TnzupG0dUVePy54y5/R79g6j/JJd08UTTCvfXOEzt3bfMipg2IAtihNA3uWVBWEUkjJpyyr6dnoyivkF48d6T/i9HLcsN9hK8vlPb6vMkPqmvVJ0lnBPIiCB4oz4IzAQUDSmD3t1NRq1E0ljRVjk9FvhlF/OhRcG+Srsbm1ZezV6yfG9n+MooXjCg4lkEyIC5SNlyFTGnpF702pQktXpSWDYbsDyD9DBw6bHKgc0suPlP+1bF+sNtS39WCVYNWEVQTIi0UstaZ8PnwM9Z69Zqs1LXrGctfvt6dk9JNke64FGNoZE8+del3papO2SXY6jB1P4K6HT0vaivR0DvtB7tPn9xz/myN1/59YTkR/bjzvcQtKkePByiqerBxS9uYxWVrzEbCIXKrF0v55PTib4kRq538hjdvU9/Eu+s4pCDemBx8thg7MJ+Ze+rcmbc8da+CMNazNvO/GieGt5MMJcTgC70Bw4jetTQ9c8rQxdy2166uefAv3X9eToYjEMIAAAAuelRYdGNyZWF0ZS1kYXRlAAB42jMyMLDQNbDUNTINMTK0MjG2MjHXNrCwMjAAAEJlBR8THDGsAAAALnpUWHRtb2RpZnktZGF0ZQAAeNozMjAw0zU00DW0DDGwsDIysTK10DawsDIwAABCEwUe4e0o4wAAAABJRU5ErkJggg%3D%3D" id="TranslationPanel-debugicon">Babelfish debug</span>';
 		return ob_get_clean();
 	}
 
@@ -181,7 +151,7 @@ class DebugPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	/**
 	 * Register this panel
 	 *
-	 * @param NetteTranslator\IEditable $translator
+	 * @param Marten\Babelfish\IEditable $translator
 	 * @param int $layout
 	 * @param int $height
 	 *

@@ -25,7 +25,7 @@
  *
  */
 
-namespace NetteTranslator;
+namespace Marten\Babelfish;
 
 /**
  * Editable translator
