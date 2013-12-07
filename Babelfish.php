@@ -869,6 +869,9 @@ class Babelfish extends Nette\Object implements IEditable
 		$result[] = 'MIME-Version: 1.0';
 		$result[] = 'Content-Transfer-Encoding: 8bit';
 		$result[] = 'X-Poedit-SourceCharset: utf-8';
+		$result[] = 'Project-Id-Version: 1';
+		$result[] = 'Language-Team: ';
+		$result[] = 'Last-Translator: ';
 
 		foreach($keys as $key => $default)
 		{
@@ -892,7 +895,7 @@ class Babelfish extends Nette\Object implements IEditable
 	 */
 	private function buildPOFile($file, $identifier)
 	{
-		$po = "# Gettext keys exported by Babelfist and Translation Panel\n"
+		$po = "# Gettext keys exported by Babelfish and Translation Panel\n"
 			."# Created: ".date('Y-m-d H:i:s')."\n".'msgid ""'."\n".'msgstr ""'."\n";
 		$po .= '"'.implode('\n"'."\n".'"', $this->generateMetadata($identifier)).'\n"'."\n\n\n";
 		foreach ($this->dictionary as $message => $data)
