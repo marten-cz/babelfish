@@ -59,14 +59,14 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	/** @var int Height of the editor */
 	protected $height = 410;
 
-	/** @var Nette\DI\IContainer */
+	/** @var \SystemContainer */
 	protected $container;
 
 	/** @var IEditable */
 	protected $translator;
 
 
-	public function __construct(Nette\DI\IContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public function __construct(\SystemContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		$this->container = $container;
 		$this->translator = $translator;
@@ -235,14 +235,14 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	/**
 	 * Register this panel
 	 *
-	 * @param \Nette\DI\IContainer $container Container instance
+	 * @param \SystemContainer $container Container instance
 	 * @param \Marten\Babelfish\IEditable $translator Translator instance
 	 * @param int $layout Layout type
 	 * @param int $height Popup height
 	 *
 	 * @return NULL
 	 */
-	public static function register(Nette\DI\IContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public static function register(\SystemContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		Nette\Diagnostics\Debugger::$bar->addPanel(new static($container, $translator, $layout, $height));
 	}

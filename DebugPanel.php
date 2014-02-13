@@ -25,7 +25,7 @@ class DebugPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	protected $height = 410;
 
 	/**
-	 * @var Nette\DI\IContainer
+	 * @var \SystemContainer
 	 */
 	protected $container;
 
@@ -43,12 +43,12 @@ class DebugPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	/**
 	 * Construct the debug panel
 	 *
-	 * @param Nette\DI\IContainer $container Nette container
+	 * @param  $container Nette container
 	 * @param IEditable $translator Translator object
 	 * @param <type> $layout
 	 * @param <type> $height
 	 */
-	public function __construct(Nette\DI\IContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public function __construct(\SystemContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		$this->container = $container;
 		$this->translator = $translator;
@@ -151,13 +151,14 @@ class DebugPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	/**
 	 * Register this panel
 	 *
-	 * @param Marten\Babelfish\IEditable $translator
+	 * @param \SystemContainer $container Nette container
+	 * @param \Marten\Babelfish\IEditable $translator
 	 * @param int $layout
 	 * @param int $height
 	 *
 	 * @return void
 	 */
-	public static function register(Nette\DI\IContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public static function register(\SystemContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		Nette\Diagnostics\Debugger::$bar->addPanel(new static($container, $translator, $layout, $height));
 	}
