@@ -79,17 +79,17 @@ class Babelfish extends Nette\Object implements IEditable
 	private $cacheMode = self::CACHE_DISABLE;
 
 	/**
-	 * @var Nette\DI\IContainer Nette container
+	 * @var \Nette\DI\IContainer Nette container
 	 */
 	protected $container;
 
 	/**
-	 * @var Nette\Http\Session Session
+	 * @var \Nette\Http\Session Session
 	 */
 	protected $session;
 
 	/**
-	 * @var Nette\Caching\Cache Caching object
+	 * @var \Nette\Caching\Cache Caching object
 	 */
 	protected $cache;
 
@@ -140,7 +140,7 @@ class Babelfish extends Nette\Object implements IEditable
 	 * $this->enableCache($container->getService('nodusCacheStorage'), self::CACHE_ALL);
 	 * </code>
 	 *
-	 * @param Nette\Caching\IStorage|NULL $cache Cache object, memory storage will be used by default.
+	 * @param \Nette\Caching\IStorage|NULL $cache Cache object, memory storage will be used by default.
 	 *
 	 * @return void
 	 */
@@ -174,7 +174,7 @@ class Babelfish extends Nette\Object implements IEditable
 	 * no files will be added. You can add more files later with {@see addFile()}.
 	 * With the third parameter you can change the language for the translations.
 	 *
-	 * @param Nette\DI\IContainer $container Container
+	 * @param \Nette\DI\IContainer $container Container
 	 * @param array $files List of files with translations
 	 * @param string $lang Language
 	 *
@@ -1045,10 +1045,10 @@ class Babelfish extends Nette\Object implements IEditable
 	 *
 	 * Inject the translator to the Nette factory.
 	 *
-	 * @param Nette\DI\IContainer $container
+	 * @param \Nette\DI\IContainer $container
 	 * @param array|Nette\ArrayHash $options
 	 *
-	 * @return Marten\Babelfish\Babelfish Babelfish instance
+	 * @return \Marten\Babelfish\Babelfish Babelfish instance
 	 */
 	public static function getTranslator(Nette\DI\IContainer $container, $options = NULL)
 	{
