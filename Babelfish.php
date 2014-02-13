@@ -79,7 +79,7 @@ class Babelfish extends Nette\Object implements IEditable
 	private $cacheMode = self::CACHE_DISABLE;
 
 	/**
-	 * @var \Nette\DI\IContainer Nette container
+	 * @var \SystemContainer Nette container
 	 */
 	protected $container;
 
@@ -174,13 +174,13 @@ class Babelfish extends Nette\Object implements IEditable
 	 * no files will be added. You can add more files later with {@see addFile()}.
 	 * With the third parameter you can change the language for the translations.
 	 *
-	 * @param \Nette\DI\IContainer $container Container
+	 * @param \SystemContainer $container Container
 	 * @param array $files List of files with translations
 	 * @param string $lang Language
 	 *
 	 * @return NULL
 	 */
-	public function __construct(Nette\DI\IContainer $container, array $files = NULL, $lang = NULL)
+	public function __construct(\SystemContainer $container, array $files = NULL, $lang = NULL)
 	{
 		if(empty($lang) && !empty($container->params['lang']))
 		{
@@ -1045,12 +1045,12 @@ class Babelfish extends Nette\Object implements IEditable
 	 *
 	 * Inject the translator to the Nette factory.
 	 *
-	 * @param \Nette\DI\IContainer $container
+	 * @param \SystemContainer $container
 	 * @param array|Nette\ArrayHash $options
 	 *
 	 * @return \Marten\Babelfish\Babelfish Babelfish instance
 	 */
-	public static function getTranslator(Nette\DI\IContainer $container, $options = NULL)
+	public static function getTranslator(\SystemContainer $container, $options = NULL)
 	{
 		$lang = $options['defaultLanguage'];
 		if(!empty($options['languages']) && is_array($options['languages']))
