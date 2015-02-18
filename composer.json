@@ -12,12 +12,12 @@
 	],
 	"require": {
 		"php": ">=5.4.0",
-		"nette/nette": "~2.1.0"
+		"nette/nette": "~2.2.0"
 	},
-	"version": "0.1",
+	"version": "0.2",
 	"extra": {
 		"branch-alias": {
-			"dev-master": "0.1-dev"
+			"dev-master": "0.2-dev"
 		}
 	}
 }
