@@ -28,6 +28,7 @@
 namespace Marten\Babelfish;
 
 use Nette;
+use Tracy;
 
 
 /**
@@ -244,7 +245,7 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	 */
 	public static function register(\SystemContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
-		Nette\Diagnostics\Debugger::$bar->addPanel(new static($container, $translator, $layout, $height));
+		Tracy\Debugger::getBar()->addPanel(new static($container, $translator, $layout, $height));
 	}
 
 
