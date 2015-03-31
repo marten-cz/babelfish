@@ -484,8 +484,8 @@ var translationPanel = {
 			}
 		}
 
-		<?php if (is_object($this->container->application->getPresenter())): ?>
-		xmlHttp.open("POST", <?php echo json_encode($this->container->application->getPresenter()->link('this')); ?>, true);
+		<?php if (is_object($this->container->getService('application')->getPresenter())): ?>
+		xmlHttp.open("POST", <?php echo json_encode($this->container->getService('application')->getPresenter()->link('this')); ?>, true);
 		xmlHttp.setRequestHeader('<?php echo static::XHR_HEADER ?>', 'devel');
 		xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 		xmlHttp.send(JSON.stringify(data));
