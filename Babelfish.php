@@ -180,7 +180,7 @@ class Babelfish extends Nette\Object implements IEditable
 	 *
 	 * @return NULL
 	 */
-	public function __construct(\SystemContainer $container, array $files = NULL, $lang = NULL)
+	public function __construct(\Nette\DI\Container $container, array $files = NULL, $lang = NULL)
 	{
 		if(empty($lang) && !empty($container->params['lang']))
 		{
@@ -193,7 +193,7 @@ class Babelfish extends Nette\Object implements IEditable
 		}
 
 		$this->container = $container;
-		$this->session = $storage = $container->session->getSection(static::SESSION_NAMESPACE);
+		$this->session = $storage = $container->getService('session')->getSection(static::SESSION_NAMESPACE);
 
 		$this->moExplodeChar = iconv('UTF-32BE', 'UTF-8' . '//IGNORE', pack('N', 0x00));
 
@@ -1050,7 +1050,7 @@ class Babelfish extends Nette\Object implements IEditable
 	 *
 	 * @return \Marten\Babelfish\Babelfish Babelfish instance
 	 */
-	public static function getTranslator(\SystemContainer $container, $options = NULL)
+	public static function getTranslator(\Nette\DI\Container $container, $options = NULL)
 	{
 		$lang = $options['defaultLanguage'];
 		if(!empty($options['languages']) && is_array($options['languages']))
@@ -1106,7 +1106,7 @@ class Babelfish extends Nette\Object implements IEditable
 	 */
 	public function foundNewString($lang, $message, $message_plural = NULL, $form = 1)
 	{
-		if (!$this->container->httpResponse->isSent() || $this->container->session->isStarted())
+		if (!$this->container->getService('httpResponse')->isSent() || $this->container->getService('session')->isStarted())
 		{
 			$space = $this->session;
 			if (!isset($space->newStrings[$lang]))

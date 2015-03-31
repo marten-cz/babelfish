@@ -26,7 +26,7 @@ class DebugPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	protected $height = 410;
 
 	/**
-	 * @var \SystemContainer
+	 * @var \Nette\DI\Container
 	 */
 	protected $container;
 
@@ -49,7 +49,7 @@ class DebugPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	 * @param <type> $layout
 	 * @param <type> $height
 	 */
-	public function __construct(\SystemContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public function __construct(\Nette\DI\Container $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		$this->container = $container;
 		$this->translator = $translator;
@@ -159,7 +159,7 @@ class DebugPanel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	 *
 	 * @return void
 	 */
-	public static function register(\SystemContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public static function register(\Nette\DI\Container $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		Tracy\Debugger::getBar()->addPanel(new static($container, $translator, $layout, $height));
 	}

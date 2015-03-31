@@ -67,7 +67,7 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	protected $translator;
 
 
-	public function __construct(\SystemContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public function __construct(\Nette\DI\Container $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		$this->container = $container;
 		$this->translator = $translator;
@@ -127,15 +127,15 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 		$files = array_keys($translator->getFiles());
 		$strings = $translator->getStrings();
 
-		$requests = $this->container->application->requests;
+		$requests = $this->container->getService('application')->getRequests();
 		$count = count($requests);
 		$presenterName = ($count > 0) ? $requests[count($requests) - 1]->presenterName : NULL;
 		$module = (!$presenterName) ? : strtolower(str_replace(':', '.', ltrim(substr($presenterName, 0, -(strlen(strrchr($presenterName, ':')))), ':')));
 		$activeFile = (in_array($module, $files)) ? $module : $files[0];
 
-		if ($this->container->session->isStarted())
+		if ($this->container->getService('session')->isStarted())
 		{
-			$session = $this->container->session->getSection(static::SESSION_NAMESPACE);
+			$session = $this->container->getService('session')->getSection(static::SESSION_NAMESPACE);
 			$untranslatedStack = isset($session['stack']) ? $session['stack'] : array();
 			foreach ($strings as $string => $data)
 			{
@@ -168,14 +168,14 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	{
 		try
 		{
-			$session = $this->container->session->getSection(self::SESSION_NAMESPACE);
+			$session = $this->container->getService('session')->getSection(self::SESSION_NAMESPACE);
 		}
 		catch (Nette\InvalidStateException $e)
 		{
 			$session = FALSE;
 		}
 
-		$request = $this->container->httpRequest;
+		$request = $this->container->getService('httpRequest');
 		if ($request->isPost() && $request->isAjax() && $request->getHeader(self::XHR_HEADER))
 		{
 			$data = json_decode(file_get_contents('php://input'));
@@ -243,7 +243,7 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	 *
 	 * @return NULL
 	 */
-	public static function register(\SystemContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public static function register(\Nette\DI\Container $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		Tracy\Debugger::getBar()->addPanel(new static($container, $translator, $layout, $height));
 	}
